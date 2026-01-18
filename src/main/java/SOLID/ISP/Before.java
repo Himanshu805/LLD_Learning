@@ -2,6 +2,8 @@ package SOLID.ISP;
 
 public class Before {
 
+
+
     interface Bird {
         void fly();
         void dance();
@@ -41,3 +43,9 @@ public class Before {
 
 //In the previous step (LSP), we created a Flyable interface. But birds do more than just fly— they swim,
 // they walk, and they hunt. If we create one giant "Bird" interface, we fall back into the same trap as before.
+
+//🚨 Problem
+//Penguin ❌ forced to implement hunt()
+//Penguin ❌ forced to implement fly()
+//Empty or dummy methods appear
+//This is a clear ISP violation.

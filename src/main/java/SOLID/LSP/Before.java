@@ -1,38 +1,53 @@
 package SOLID.LSP;
 
+
+import SOLID.OCP.OCP;
+
 public class Before {
 
     public static class Bird{
         protected String name;
         protected String color;
         protected int age;
+        private FlyBehavior flyBehavior;
 
-        public Bird(String name, String color, int age) {
+        public Bird(String name, String color, int age, FlyBehavior flyBehavior) {
             this.name = name;
             this.color = color;
             this.age = age;
+            this.flyBehavior = flyBehavior;
         }
 
-        public void fly() {
-            System.out.println(name + " is flying.");
+        public int getAge() {
+            return age;
         }
+
+        public String getColor() {
+            return color;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void performFly() {
+            flyBehavior.fly();
+        }
+
+
     }
 
-    public static class Sparrow extends Bird {
-        public Sparrow(String name, String color, int age) {
-            super(name, color, age);
-        }
+    public static class Sparrow implements FlyBehavior {
+
 
         @Override
         public void fly() {
-            System.out.println(name + " is flying high.");
+            System.out.println( "Sparrow is flying high.");
         }
     }
 
-    public static class Penguin extends Bird {
-        public Penguin(String name, String color, int age) {
-            super(name, color, age);
-        }
+    public static class Penguin implements FlyBehavior {
+
 
         @Override
         public void fly()
@@ -41,18 +56,16 @@ public class Before {
         }
     }
 
-    public static void flyUtility(Bird bird) {
-        bird.fly();
-    }
 
     public static void main(String[] args) {
-        Bird sp = new Sparrow("Sparrow", "Brown", 2);
+        BirdFlyService birdFlyService = new BirdFlyService();
+        Bird sp = new Bird("Sparrow", "Brown", 2, new Sparrow());
         //sp.fly();
-        flyUtility(sp);
+        birdFlyService.fly(sp);
 
-        Bird pe = new Penguin("Penguin", "Blue", 1);
+        Bird pe = new Bird("Penguin", "Blue", 1, new Penguin());
         //pe.fly();
-        flyUtility(pe);  //❌ .UnsupportedOperationException: Penguins cannot fly.
+        birdFlyService.fly(pe);  //❌ .UnsupportedOperationException: Penguins cannot fly.
     }
 }
 

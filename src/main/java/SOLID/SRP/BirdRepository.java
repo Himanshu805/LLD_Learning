@@ -1,4 +1,4 @@
-package SOLID.SRP_OCP;
+package SOLID.SRP;
 
 public class BirdRepository {
     public void saveToDatabase(SRP.Bird bird) {

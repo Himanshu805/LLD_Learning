@@ -4,21 +4,31 @@ public class After {
     // Liskov Substitution Principle (LSP) states that objects of a superclass should be replaceable with objects
     // of a subclass without affecting the correctness/behavior of the program.
 
-    abstract static class Bird {
-        public abstract void eat();
-    }
+    public static class Bird {
 
-    abstract static class FlyingBird extends Bird {
-        public void fly(){
-            System.out.println("I can fly");
-        };
-    }
+        protected String name;
+        protected String color;
+        protected int age;
 
-    public static class Sparrow extends FlyingBird {
-        @Override
-        public void eat() {
-            System.out.println("Sparrow is eating seeds.");
+        public Bird(String name, String color, int age) {
+            this.name = name;
+            this.color = color;
+            this.age = age;
         }
+
+        public String getName() {
+            return name;
+        }
+    }
+
+
+
+    public static class Sparrow extends Bird implements FlyingBird {
+        public Sparrow(String name, String color, int age) {
+            super(name, color, age);
+        }
+
+
 
         // Altering the behavior of the fly method
         // Voilating the LSP
@@ -29,20 +39,17 @@ public class After {
     };
 
     public static class Penguin extends Bird {
-        @Override
-        public void eat() {
-            System.out.println("Penguin is eating fish.");
+        public Penguin(String name, String color, int age) {
+            super(name, color, age);
         }
     };
 
     public static void main(String[] args) {
-        FlyingBird sp = new Sparrow();
-        sp.eat();
-        sp.fly();
+        FlyingBird sp = new Sparrow("Sparrow","Black",2);
+        sp.fly();    // ✅ valid
 
-        Bird pe = new Penguin();
-        pe.eat();
-        //pe.fly
+        Bird pe = new Penguin("Penguin","Blue",3);
+        //pe.fly  // ❌ compile-time safety
     }
 
 }

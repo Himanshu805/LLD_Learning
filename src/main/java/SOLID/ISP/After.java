@@ -5,7 +5,7 @@ package SOLID.ISP;
 
 
 // ✅ Interface Segregation Principle (ISP) :
-// States that no client should be forced to depend on methods it does not use.
+//  States Clients should not be forced to depend on interface they does not use.
 
 public class After {
 
