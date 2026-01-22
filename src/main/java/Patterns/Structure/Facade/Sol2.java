@@ -1,6 +1,7 @@
-package Patterns.Creational.Facade;
+package Patterns.Structure.Facade;
 
-class Amplifier{
+
+class Amplifier1{
     public void on(){
         System.out.println("Amplifier on");
     }
@@ -9,9 +10,9 @@ class Amplifier{
     }
 }
 
-class DVDPlayer{
+class DVDPlayer1{
     public void play(String movie){
-        System.out.println("DVD player playing  " + movie);
+        System.out.println("DVD player playing::  " + movie);
     }
 
     public void stop(){
@@ -20,7 +21,7 @@ class DVDPlayer{
 
 }
 
-class Projector{
+class Projector1{
     public void on(){
         System.out.println("Projector on");
     }
@@ -29,7 +30,7 @@ class Projector{
     }
 }
 
-class Screen{
+class Screen1{
     public void down(){
         System.out.println("Screen down");
     }
@@ -38,7 +39,7 @@ class Screen{
     }
 }
 
-class Light{
+class Light1{
     public void dim(){
         System.out.println("Light dim");
     }
@@ -47,7 +48,7 @@ class Light{
     }
 }
 
-class PopcornPopper{
+class PopcornPopper1{
     public void pop(){
         System.out.println("Popcorn popper");
     }
@@ -56,17 +57,14 @@ class PopcornPopper{
     }
 }
 
-
-
-public class Sol1 {
-    public static void main(String[] args) {
-
-        Amplifier amplifier = new Amplifier();
-        DVDPlayer dvdPlayer = new DVDPlayer();
-        Projector projector = new Projector();
-        Screen screen = new Screen();
-        Light light = new Light();
-        PopcornPopper popcornPopper = new PopcornPopper();
+class Helper{
+    public static void  watchMovie(String movie){
+        Amplifier1 amplifier = new Amplifier1();
+        DVDPlayer1 dvdPlayer = new DVDPlayer1();
+        Projector1 projector = new Projector1();
+        Screen1 screen = new Screen1();
+        Light1 light = new Light1();
+        PopcornPopper1 popcornPopper = new PopcornPopper1();
 
         // simulating watching the movie without facade
         amplifier.on();
@@ -75,17 +73,17 @@ public class Sol1 {
         projector.on();
         amplifier.on();
         dvdPlayer.play("Inception");
-
-
-
-        }
-
+    }
 }
 
-// cons:
-// 1. Client needs to know about all the components
-// if client messes up the order of operations, it can lead to errors
-// Any change in the subsystem requires changes in the client code
-// Client tightly coupled to many classes
-// Complex & error-prone
-// Hard to maintain
+
+
+
+public class Sol2 {
+    public static void main(String[] args) {
+       Helper.watchMovie("Inception");
+
+    }
+
+
+}

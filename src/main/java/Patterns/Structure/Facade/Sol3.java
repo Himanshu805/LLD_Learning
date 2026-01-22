@@ -1,4 +1,4 @@
-package Patterns.Creational.Facade;
+package Patterns.Structure.Facade;
 
 //The Facade Design Pattern is a structural design pattern that provides a simplified interface to a complex subsystem.
 

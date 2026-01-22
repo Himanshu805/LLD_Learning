@@ -1,4 +1,4 @@
-package Patterns.Creational.Adapter;
+package Patterns.Structure.Adapter;
 
 //The Adapter Pattern is a structural design pattern that allows objects with incompatible
 //interfaces to collaborate. It works as a bridge between two interfaces, enabling classes that couldn’t otherwise

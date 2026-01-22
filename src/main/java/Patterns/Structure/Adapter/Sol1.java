@@ -1,4 +1,4 @@
-package Patterns.Creational.Adapter;
+package Patterns.Structure.Adapter;
 
 
 interface BankAPI1{
