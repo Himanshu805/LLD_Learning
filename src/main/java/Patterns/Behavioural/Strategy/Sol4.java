@@ -83,7 +83,7 @@ public class Sol4 {
         navigate.setRouteStrategy(new FastestRouteStrategy3());
         navigate.navigate();
 
-        navigate.setRouteStrategy(new ShortestRouteStrategy3());
+        navigate.setRouteStrategy(new ShortestRouteStrategy3());  
         navigate.navigate();
 
         navigate.setRouteStrategy(new AvoidTollStrategy3());

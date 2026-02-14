@@ -44,3 +44,16 @@ public class Sol2{
 }
 
 
+
+// Pros :
+// - Better separation of concerns
+// - Modular design
+
+// Cons :
+// - Still hardcoded dependencies on website and app
+// Tight coupling between BurgerStock2 and its listeners
+// Voilates the Open/Closed Principle
+// Voilates the Dependency Inversion Principle
+// No runtime flexibility to add/remove listeners
+
+
